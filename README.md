@@ -1,18 +1,21 @@
 # Should I Support Them?
 
-An independent publication fighting misinformation to help you decide if YOU should support a company / group / individual.
+An independent publication fighting misinformation to help you decide if YOU should support that company / group / individual.
 
-Link: <https://coscia-media.github.io/should-i-support-them/>
+Link: <http://should-i-support-them.github.io/>
 
 ## Attribution
 
 Website style provided by HTML5 UP:
 
 > Future Imperfect by HTML5 UP
+>
 > html5up.net | @ajlkn
+>
 > Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 > 
 > AJ
+>
 > aj@lkn.io | @ajlkn
 > 
 > Credits:
