@@ -4,92 +4,106 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-(function($) {
+(function ($) {
+  var $window = $(window),
+    $body = $("body"),
+    $header = $("#header"),
+    $menu = $("#menu"),
+    $sidebar = $("#sidebar"),
+    $main = $("#main"),
+    $footer = $("#footer");
 
-	var	$window = $(window),
-		$body = $('body'),
-		$menu = $('#menu'),
-		$sidebar = $('#sidebar'),
-		$main = $('#main');
+  // load header
+  $header.load("/includes/header.html", (response, status, xhr) => {
+    if (status == "error") {
+      var msg = "Error loading header: ";
+      alert($("<div>").html(msg + xhr.status + " " + xhr.statusText));
+    }
 
-	// Breakpoints.
-		breakpoints({
-			xlarge:   [ '1281px',  '1680px' ],
-			large:    [ '981px',   '1280px' ],
-			medium:   [ '737px',   '980px'  ],
-			small:    [ '481px',   '736px'  ],
-			xsmall:   [ null,      '480px'  ]
-		});
+    // load menu
+    $menu.load("/includes/menu.html", (response, status, xhr) => {
+      if (status == "error") {
+        var msg = "Error loading menu: ";
+        alert($("<div>").html(msg + xhr.status + " " + xhr.statusText));
+      }
 
-	// Play initial animations on page load.
-		$window.on('load', function() {
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
-		});
+      // load footer
+      $footer.load("/includes/footer.html", (response, status, xhr) => {
+        if (status == "error") {
+          var msg = "Error loading footer: ";
+          alert($("<div>").html(msg + xhr.status + " " + xhr.statusText));
+        }
 
-	// Menu.
-		$menu
-			.appendTo($body)
-			.panel({
-				delay: 500,
-				hideOnClick: true,
-				hideOnSwipe: true,
-				resetScroll: true,
-				resetForms: true,
-				side: 'right',
-				target: $body,
-				visibleClass: 'is-menu-visible'
-			});
+        // Breakpoints.
+        breakpoints({
+          xlarge: ["1281px", "1680px"],
+          large: ["981px", "1280px"],
+          medium: ["737px", "980px"],
+          small: ["481px", "736px"],
+          xsmall: [null, "480px"],
+        });
 
-	// Search (header).
-		var $search = $('#search'),
-			$search_input = $search.find('input');
+        // Play initial animations on page load.
+        $window.on("load", function () {
+          window.setTimeout(function () {
+            $body.removeClass("is-preload");
+          }, 100);
+        });
 
-		$body
-			.on('click', '[href="#search"]', function(event) {
+        // Menu.
+        $menu.appendTo($body).panel({
+          delay: 500,
+          hideOnClick: true,
+          hideOnSwipe: true,
+          resetScroll: true,
+          resetForms: true,
+          side: "right",
+          target: $body,
+          visibleClass: "is-menu-visible",
+        });
 
-				event.preventDefault();
+        // Search (header).
+        var $search = $("#search"),
+          $search_input = $search.find("input");
 
-				// Not visible?
-					if (!$search.hasClass('visible')) {
+        $body.on("click", '[href="#search"]', function (event) {
+          event.preventDefault();
 
-						// Reset form.
-							$search[0].reset();
+          // Not visible?
+          if (!$search.hasClass("visible")) {
+            // Reset form.
+            $search[0].reset();
 
-						// Show.
-							$search.addClass('visible');
+            // Show.
+            $search.addClass("visible");
 
-						// Focus input.
-							$search_input.focus();
+            // Focus input.
+            $search_input.focus();
+          }
+        });
 
-					}
+        $search_input
+          .on("keydown", function (event) {
+            if (event.keyCode == 27) $search_input.blur();
+          })
+          .on("blur", function () {
+            window.setTimeout(function () {
+              $search.removeClass("visible");
+            }, 100);
+          });
 
-			});
+        // Intro.
+        var $intro = $("#intro");
 
-		$search_input
-			.on('keydown', function(event) {
+        // Move to main on <=large, back to sidebar on >large.
+        breakpoints.on("<=large", function () {
+          $intro.prependTo($main);
+        });
 
-				if (event.keyCode == 27)
-					$search_input.blur();
-
-			})
-			.on('blur', function() {
-				window.setTimeout(function() {
-					$search.removeClass('visible');
-				}, 100);
-			});
-
-	// Intro.
-		var $intro = $('#intro');
-
-		// Move to main on <=large, back to sidebar on >large.
-			breakpoints.on('<=large', function() {
-				$intro.prependTo($main);
-			});
-
-			breakpoints.on('>large', function() {
-				$intro.prependTo($sidebar);
-			});
-
+        breakpoints.on(">large", function () {
+          $intro.prependTo($sidebar);
+        });
+      });
+    });
+  });
 })(jQuery);

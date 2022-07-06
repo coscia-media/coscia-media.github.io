@@ -2,25 +2,27 @@
 
 An independent publication fighting misinformation to help you decide if YOU should support a company / group / individual.
 
+Link: <https://coscia-media.github.io/should-i-support-them/>
+
 ## Attribution
 
-Website provided by HTML5 UP:
+Website style provided by HTML5 UP:
 
-Future Imperfect by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-
-AJ
-aj@lkn.io | @ajlkn
-
-Credits:
-
-- Demo Images:
-  - Unsplash (unsplash.com)
-
-- Icons:
-  - Font Awesome (fontawesome.io)
-
-- Other:
-  - jQuery (jquery.com)
-  - Responsive Tools (github.com/ajlkn/responsive-tools)
+> Future Imperfect by HTML5 UP
+> html5up.net | @ajlkn
+> Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+> 
+> AJ
+> aj@lkn.io | @ajlkn
+> 
+> Credits:
+> 
+> - Demo Images:
+>   - Unsplash (unsplash.com)
+> 
+> - Icons:
+>   - Font Awesome (fontawesome.io)
+> 
+> - Other:
+>   - jQuery (jquery.com)
+>   - Responsive Tools (github.com/ajlkn/responsive-tools)
