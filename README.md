@@ -2,7 +2,7 @@
 
 An independent publication fighting misinformation to help you decide if YOU should support that company / group / individual.
 
-Link: <http://should-i-support-them.github.io/>
+Link: <http://coscia-media.github.io/>
 
 ## Attribution
 
